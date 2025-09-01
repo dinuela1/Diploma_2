@@ -1,0 +1,5 @@
+asses_token = "accessToken"
+msg_user_exists = "User already exists"
+msg_missing_field = "Email, password and name are required fields"
+msg_incorrect_login_info = "email or password are incorrect"
+msg_id_needed = "Ingredient ids must be provided"
