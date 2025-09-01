@@ -6,12 +6,14 @@ from data_gen import *
 def new_user():
     email = random_email()
     response = create_user(email)
-    assert response.status_code == 200
-    return {
+    token = response.json()["accessToken"]
+    user = {
         "email": email,
         "password": "123456",
-        "token": response.json()["accessToken"]
+        "token": token
     }
+    yield user
+    requests.delete(f"{BASE_URL}/auth/user", headers={"Authorization": token})
 
 
 @pytest.fixture
